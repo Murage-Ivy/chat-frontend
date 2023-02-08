@@ -103,3 +103,8 @@
   max-width: 500px;
   margin: 0 auto;
 }
+
+.error {
+  color: red;
+  padding: 10px;
+}

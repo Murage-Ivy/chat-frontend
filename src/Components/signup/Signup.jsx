@@ -4,6 +4,10 @@ import "./Signup.css";
 import { addUser } from "./UserSlice";
 
 function Signup() {
+  const dispatch = useDispatch();
+
+  const errors = useSelector((state) => state.user.errors);
+
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -11,8 +15,7 @@ function Signup() {
     password_confirmation: "",
     image: "",
   });
-  const dispatch = useDispatch();
-  const errors = useSelector((state) => state.user.errors);
+  const [isVisible, setIsVisible] = useState(false)
   function handleChange(event) {
     const value = event.target.value;
     const name = event.target.name;
@@ -33,14 +36,17 @@ function Signup() {
     formData.append("password_confirmation", user.password_confirmation);
     formData.append("image", user.image);
     dispatch(addUser(formData));
-    console.log(...formData);
   }
 
   function customErrorDisplay() {
-    if (user.password.length > 0 && user.password.length < 6) {
-      return <span>{errors[0]?.password[0]}</span>;
+    if (user.password.length >= 1 && user.password.length < 6) {
+      return true;
+    } else {
+      return false;
     }
   }
+
+
 
   return (
     <div className="signup-container">
@@ -91,8 +97,11 @@ function Signup() {
             />
             <label className="floating-label">Password</label>
             <br />
-            {/* <span className="error">{errors[0]?.password[0]}</span> */}
-            {customErrorDisplay()}
+            <span className="error">
+              {customErrorDisplay
+                ? errors[0]?.password[0]
+                : errors[0]?.password[1]}
+            </span>
           </div>
 
           <div className="form-group">
@@ -106,8 +115,11 @@ function Signup() {
             />
             <label className="floating-label">Password Confirmation</label>
             <br />
-            {/* <span className="error">{errors[0]?.password_confirmation[0]}</span> */}
-            {customErrorDisplay()}
+            <span className="error">
+              {customErrorDisplay
+                ? errors[0]?.password_confirmation[0]
+                : errors[0]?.password_confirmation[1]}
+            </span>
           </div>
 
           <input
