@@ -39,11 +39,12 @@
   left: 1rem;
   font-size: 13px;
   color: gray;
-  /* transform: translateY(-50%); */
+  transform: translateY(-50%);
 }
 
 .form-group {
   position: relative;
+  padding: 0.5rem;
 }
 .sign-up input:focus {
   outline: 2px solid var(--secondary-color);
@@ -51,9 +52,20 @@
 }
 
 .form-group > input:focus + .floating-label,
-.form-group > input:valid + .floating-label {
-  top: -1rem;
- 
+.form-group > input:valid + .floating-label,
+.form-group > input:required {
+  top: -0.5rem;
+}
+
+.sign-up-btn {
+  padding: 5px 40px;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--secondary-color);
+  font-size: 16px;
+  color: var(--tertiary-color);
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .img-card {
@@ -73,6 +85,13 @@
 
 #image {
   border: none;
+}
+::-webkit-file-upload-button {
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  border: none;
+  padding: 5px 40px;
 }
 
 .img-card > img {
