@@ -16,7 +16,6 @@ function Signup() {
   function handleChange(event) {
     const value = event.target.value;
     const name = event.target.name;
-    // console.log(event.target.files[0])
     if (event.target.name === "image") {
       setUser({ ...user, image: event.target.files[0] });
     } else {
@@ -32,9 +31,9 @@ function Signup() {
     formData.append("email", user.email);
     formData.append("password", user.password);
     formData.append("password_confirmation", user.password_confirmation);
-    formData.append("image", event.target.image.files[0]);
-    // dispatch(addUser(formData));
-    console.log(user);
+    formData.append("image", user.image);
+    dispatch(addUser(formData));
+    console.log(...formData);
   }
   return (
     <div className="signup-container">

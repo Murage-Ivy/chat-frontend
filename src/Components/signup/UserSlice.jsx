@@ -3,7 +3,7 @@ export const addUser = (user) => {
     dispatch({ type: "user/loading" });
     const response = await fetch("http://127.0.0.1:3000/users", {
       method: "POST",
-      headers: { "Content-Type": "multipart/form-data" },
+      headers: { accept: "application/json" },
       body: user,
     });
 
