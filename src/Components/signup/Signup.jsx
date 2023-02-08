@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Signup.css";
 import { addUser } from "./UserSlice";
 
@@ -12,7 +12,7 @@ function Signup() {
     image: "",
   });
   const dispatch = useDispatch();
-
+  const errors = useSelector((state) => state.user.errors);
   function handleChange(event) {
     const value = event.target.value;
     const name = event.target.name;
@@ -35,6 +35,13 @@ function Signup() {
     dispatch(addUser(formData));
     console.log(...formData);
   }
+
+  function customErrorDisplay() {
+    if (user.password.length > 0 && user.password.length < 6) {
+      return <span>{errors[0]?.password[0]}</span>;
+    }
+  }
+
   return (
     <div className="signup-container">
       <div className="inner-container">
@@ -49,47 +56,58 @@ function Signup() {
             <input
               type="text"
               name="username"
-              required
+              placeholder="."
               autoComplete="username"
               value={user.username}
               onChange={handleChange}
             />
-            <label className="floating-label">Name</label>
+            <label className="floating-label">Username</label>
+            <br />
+            <span className="error">{errors[0]?.username}</span>
           </div>
           <div className="form-group">
             <input
               type="email"
               name="email"
-              required
+              placeholder="."
               autoComplete="email"
               value={user.email}
               onChange={handleChange}
             />
             <label className="floating-label">Email</label>
+            <br />
+
+            <span className="error">{errors[0]?.email}</span>
           </div>
 
           <div className="form-group">
             <input
               type="password"
               name="password"
+              placeholder="."
               autoComplete="current-password"
               value={user.password}
               onChange={handleChange}
-              required
             />
             <label className="floating-label">Password</label>
+            <br />
+            {/* <span className="error">{errors[0]?.password[0]}</span> */}
+            {customErrorDisplay()}
           </div>
 
           <div className="form-group">
             <input
               type="password"
               name="password_confirmation"
+              placeholder="."
               value={user.password_confirmation}
               autoComplete="current-password"
               onChange={handleChange}
-              required
             />
             <label className="floating-label">Password Confirmation</label>
+            <br />
+            {/* <span className="error">{errors[0]?.password_confirmation[0]}</span> */}
+            {customErrorDisplay()}
           </div>
 
           <input

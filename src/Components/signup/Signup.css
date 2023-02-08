@@ -46,15 +46,20 @@
   position: relative;
   padding: 0.5rem;
 }
-.sign-up input:focus {
+.form-group > input:focus {
   outline: 2px solid var(--secondary-color);
   border-bottom: none;
 }
 
+.form-group > input::placeholder {
+  color: transparent;
+}
+
 .form-group > input:focus + .floating-label,
-.form-group > input:valid + .floating-label,
+.form-group > input:not(:placeholder-shown) + .floating-label,
 .form-group > input:required {
-  top: -0.5rem;
+  top: 0.5rem;
+  background-color: var(--tertiary-color);
 }
 
 .sign-up-btn {
