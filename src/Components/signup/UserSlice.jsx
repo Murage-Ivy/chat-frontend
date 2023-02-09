@@ -18,6 +18,13 @@ export const addUser = (user, alertSuccess) => {
   };
 };
 
+export const getUser = (token) => {
+  return async function (dispatch) {
+    dispatch({type: "user/loading"})
+    const response = await fetch("")
+  }
+} 
+
 const initialState = {
   user: {},
   status: "idle",
