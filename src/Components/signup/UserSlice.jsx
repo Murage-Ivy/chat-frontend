@@ -1,4 +1,4 @@
-export const addUser = (user) => {
+export const addUser = (user, alertSuccess) => {
   return async function (dispatch) {
     dispatch({ type: "user/loading" });
     const response = await fetch("http://127.0.0.1:3000/users", {
@@ -11,7 +11,6 @@ export const addUser = (user) => {
 
     if (response.ok) {
       dispatch({ type: "user/signup", payload: data.user });
-      console.log(data.user);
       localStorage.setItem("user", data.jwt);
     } else {
       dispatch({ type: "user/errors", payload: data.errors });

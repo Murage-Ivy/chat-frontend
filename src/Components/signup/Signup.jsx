@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Signup.css";
 import { addUser } from "./UserSlice";
@@ -8,6 +8,8 @@ function Signup() {
 
   const errors = useSelector((state) => state.user.errors);
 
+  const status = useSelector((state) => state.user.status);
+
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -15,7 +17,8 @@ function Signup() {
     password_confirmation: "",
     image: "",
   });
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
+
   function handleChange(event) {
     const value = event.target.value;
     const name = event.target.name;
@@ -35,7 +38,14 @@ function Signup() {
     formData.append("password", user.password);
     formData.append("password_confirmation", user.password_confirmation);
     formData.append("image", user.image);
-    dispatch(addUser(formData));
+    dispatch(addUser(formData, successSignUp));
+    setUser({
+      username: "",
+      email: "",
+      password: "",
+      password_confirmation: "",
+      image: "",
+    });
   }
 
   function customErrorDisplay() {
@@ -46,7 +56,29 @@ function Signup() {
     }
   }
 
+  function loading() {
+    if (status === "loading") {
+      return "Signing you up ...";
+    } else {
+      return "Sign up";
+    }
+  }
 
+  function successSignUp() {
+    <h2>You have successfully Signed up!</h2>;
+  }
+
+  useEffect(() => {
+    if (!errors) {
+      setIsVisible(false);
+    }
+    const timer = setInterval(() => {
+      setIsVisible(false);
+    }, 3000);
+
+    setIsVisible(true);
+    return () => clearInterval(timer);
+  }, [errors]);
 
   return (
     <div className="signup-container">
@@ -69,7 +101,9 @@ function Signup() {
             />
             <label className="floating-label">Username</label>
             <br />
-            <span className="error">{errors[0]?.username}</span>
+            {isVisible ? (
+              <span className="error">{errors[0]?.username}</span>
+            ) : null}
           </div>
           <div className="form-group">
             <input
@@ -83,7 +117,9 @@ function Signup() {
             <label className="floating-label">Email</label>
             <br />
 
-            <span className="error">{errors[0]?.email}</span>
+            {isVisible ? (
+              <span className="error">{errors[0]?.email}</span>
+            ) : null}
           </div>
 
           <div className="form-group">
@@ -97,11 +133,13 @@ function Signup() {
             />
             <label className="floating-label">Password</label>
             <br />
-            <span className="error">
-              {customErrorDisplay
-                ? errors[0]?.password[0]
-                : errors[0]?.password[1]}
-            </span>
+            {isVisible ? (
+              <span className="error">
+                {customErrorDisplay
+                  ? errors[0]?.password[0]
+                  : errors[0]?.password[1]}
+              </span>
+            ) : null}
           </div>
 
           <div className="form-group">
@@ -115,11 +153,13 @@ function Signup() {
             />
             <label className="floating-label">Password Confirmation</label>
             <br />
-            <span className="error">
-              {customErrorDisplay
-                ? errors[0]?.password_confirmation[0]
-                : errors[0]?.password_confirmation[1]}
-            </span>
+            {isVisible ? (
+              <span className="error">
+                {customErrorDisplay
+                  ? errors[0]?.password_confirmation[0]
+                  : errors[0]?.password_confirmation[1]}
+              </span>
+            ) : null}
           </div>
 
           <input
@@ -129,7 +169,7 @@ function Signup() {
             size="60"
             onChange={handleChange}
           />
-          <button className="sign-up-btn">Sign Up</button>
+          <button className="sign-up-btn">{loading()}</button>
         </form>
       </div>
     </div>
