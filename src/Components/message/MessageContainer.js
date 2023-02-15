@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 function MessageContainer() {
-  const user = useSelector(state => state.user.user);
+  const user = useSelector((state) => state.user.user);
   console.log(user);
   return (
     <div className="message-container">

@@ -1,13 +1,13 @@
 import "./App.css";
-import MessageContainer from "./Components/message/MessageContainer";
+import MainPage from "./Components/mainPage/MainPage";
+import SideBar from "./Components/sidebar/SideBar";
 import Signup from "./Components/signup/Signup";
 
 function App() {
-
   return (
     <div className="App">
-      <Signup />
-      <MessageContainer />
+      {/* <Signup /> */}
+      <MainPage />
     </div>
   );
 }

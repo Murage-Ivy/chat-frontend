@@ -1,0 +1,6 @@
+.main-page {
+  display: grid;
+  grid-template-columns: 10% 40% 50%;
+  min-height: 100vh;
+  border: 1px solid red;
+}
