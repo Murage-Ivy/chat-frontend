@@ -1,3 +1,24 @@
 .sidebar {
   background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  padding: 15px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: start;
+}
+.side-icon {
+  size: 40px;
+  height: 1.5em;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.item > span {
+  font-size: 14px;
+  font-weight: 500;
 }

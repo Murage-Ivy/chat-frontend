@@ -12,22 +12,22 @@ function SideBar() {
   return (
     <div className="sidebar">
       <div className="item">
-        <FontAwesomeIcon icon={faPerson} />
+        <FontAwesomeIcon icon={faPerson} className="side-icon" />
         <span>Account</span>
       </div>
 
       <div className="item">
-        <FontAwesomeIcon icon={faContactBook} />
+        <FontAwesomeIcon icon={faContactBook} className="side-icon" />
         <span>Contacts</span>
       </div>
 
       <div className="item">
-        <FontAwesomeIcon icon={faMessage} />
+        <FontAwesomeIcon icon={faMessage} className="side-icon" />
         <span>Chats</span>
       </div>
 
       <div className="item">
-        <FontAwesomeIcon icon={faArrowRightFromBracket} />
+        <FontAwesomeIcon icon={faArrowRightFromBracket} className="side-icon" />
         <span>LOGOUT</span>
       </div>
     </div>
