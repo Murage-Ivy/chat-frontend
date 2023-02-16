@@ -1,0 +1,23 @@
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 0.2em;
+  color: var(--secondary-color);
+  height: 1em;
+}
+.label-for-search {
+  position: relative;
+ 
+}
+
+.label-for-search > input {
+  padding: 8px 25px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid var(--secondary-color);
+  width: 100%;
+}
+.label-for-search > input::placeholder {
+  position: absolute;
+  left: 25px;
+}

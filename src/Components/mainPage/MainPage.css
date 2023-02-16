@@ -2,5 +2,8 @@
   display: grid;
   grid-template-columns: 10% 40% 50%;
   min-height: 100vh;
-  border: 1px solid red;
+  border-radius: 20px;
+  width: 90%;
+  margin: 15px auto;
+  border: 1px solid var(--tertiary-color);
 }

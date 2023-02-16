@@ -1,5 +1,6 @@
 import { faContactBook } from "@fortawesome/free-regular-svg-icons";
 import {
+  faAdd,
   faArrowRightFromBracket,
   faMessage,
   faPerson,
@@ -14,6 +15,11 @@ function SideBar() {
       <div className="item">
         <FontAwesomeIcon icon={faPerson} className="side-icon" />
         <span>Account</span>
+      </div>
+
+      <div className="item">
+        <FontAwesomeIcon icon={faAdd} className="side-icon" />
+        <span>Add Friend</span>
       </div>
 
       <div className="item">
