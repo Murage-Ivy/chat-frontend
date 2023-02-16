@@ -12,6 +12,13 @@
   height: 1.2em;
 }
 
+#add-friend {
+  border-radius: 50%;
+  padding: 5px;
+  background-color: var(--tertiary-color);
+  color: var(--secondary-color);
+}
+
 .item {
   display: flex;
   align-items: center;

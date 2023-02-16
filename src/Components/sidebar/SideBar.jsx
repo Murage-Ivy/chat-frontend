@@ -18,7 +18,7 @@ function SideBar() {
       </div>
 
       <div className="item">
-        <FontAwesomeIcon icon={faAdd} className="side-icon" />
+        <FontAwesomeIcon icon={faAdd} className="side-icon"  id ="add-friend"/>
         <span>Add Friend</span>
       </div>
 
