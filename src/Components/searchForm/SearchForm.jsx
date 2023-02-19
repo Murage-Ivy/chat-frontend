@@ -6,10 +6,10 @@ import "./SearchForm.css";
 function SearchForm() {
   return (
     <div className="search-input">
-      <lable className="label-for-search">
+      <label className="label-for-search">
         <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon" />
         <input placeholder="Search in Chats" type="text" />
-      </lable>
+      </label>
     </div>
   );
 }

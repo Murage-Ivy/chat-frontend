@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./SideBar.css";
 
 function SideBar() {
@@ -17,10 +18,12 @@ function SideBar() {
         <span>Account</span>
       </div>
 
-      <div className="item">
-        <FontAwesomeIcon icon={faAdd} className="side-icon"  id ="add-friend"/>
-        <span>Add Friend</span>
-      </div>
+      <Link to="/friends/form">
+        <div className="item">
+          <FontAwesomeIcon icon={faAdd} className="side-icon" id="add-friend" />
+          <span>Add Friend</span>
+        </div>
+      </Link>
 
       <div className="item">
         <FontAwesomeIcon icon={faContactBook} className="side-icon" />
