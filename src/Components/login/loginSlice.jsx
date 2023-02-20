@@ -1,4 +1,4 @@
-export const loginUser = (user) => {
+export const loginUser = (user, navigate) => {
   return async function (dispatch) {
     dispatch({ type: "user/loading" });
 
@@ -15,6 +15,8 @@ export const loginUser = (user) => {
     if (response.ok) {
       dispatch({ type: "user/login", payload: data.user });
       localStorage.setItem("user", data.jwt);
+      console.log(data);
+      navigate("/mainpage");
     } else {
       dispatch({ type: "user/error", payload: data.error });
     }
