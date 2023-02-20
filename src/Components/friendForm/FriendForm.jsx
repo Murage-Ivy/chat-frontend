@@ -15,7 +15,7 @@ function FriendForm() {
     const { value, name } = event.target;
     setFriend({ ...friend, [name]: value });
   }
-
+  
   function handleSubmit(event) {
     event.preventDefault();
     dispatch(addFriend(friend, localStorage.getItem("user")));

@@ -5,7 +5,7 @@ export const addFriend = (friend, token) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `${token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(friend),
     });
@@ -13,10 +13,9 @@ export const addFriend = (friend, token) => {
     const data = await response.json();
 
     if (response.ok) {
-    //   dispatch({ type: "add/Friend", payload: data });
-      console.log(data)
+      dispatch({ type: "add/Friend", payload: data });
     } else {
-    //   dispatch({ type: "errors/friends", payload: data.errors });
+      dispatch({ type: "errors/friends", payload: data.errors });
     }
   };
 };
