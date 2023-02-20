@@ -18,7 +18,7 @@ function SideBar() {
         <span>Account</span>
       </div>
 
-      <Link to="/friends/form">
+      <Link to="/friendform">
         <div className="item">
           <FontAwesomeIcon icon={faAdd} className="side-icon" id="add-friend" />
           <span>Add Friend</span>

@@ -11,7 +11,7 @@ function App() {
         {/* <Route path="/" element={Log}/> */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/mainpage" element={<MainPage />} />
-        <Route path="/friends/form" element={<FriendForm />} />
+        <Route path="/friendform" element={<FriendForm />} />
       </Routes>
     </div>
   );
