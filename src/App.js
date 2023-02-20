@@ -1,18 +1,10 @@
-import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import FriendForm from "./Components/friendForm/FriendForm";
-import MainPage from "./Components/mainPage/MainPage";
-import Signup from "./Components/signup/Signup";
+import ChatRoutes from "./route";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        {/* <Route path="/" element={Log}/> */}
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/mainpage" element={<MainPage />} />
-        <Route path="/friendform" element={<FriendForm />} />
-      </Routes>
+      <ChatRoutes />
     </div>
   );
 }
