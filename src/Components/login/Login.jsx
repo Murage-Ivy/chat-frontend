@@ -2,7 +2,7 @@ import { faLock, faPerson } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { loginUser } from "./loginSlice";
 
@@ -94,7 +94,10 @@ function Login() {
         </button>
 
         <p className="signup-option">
-          Don't Have an Account? <span id="sign-up">Sign Up</span>
+          Don't Have an Account?{" "}
+          <Link to="/signup">
+            <span id="sign-up">Sign Up</span>
+          </Link>
         </p>
       </form>
     </div>
