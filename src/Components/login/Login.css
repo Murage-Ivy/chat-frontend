@@ -90,3 +90,8 @@
   cursor: pointer;
   color: var(--secondary-color);
 }
+
+.login-error {
+  align-self: center;
+  color: red;
+}

@@ -1,7 +1,7 @@
 import { faLock, faPerson } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { loginUser } from "./loginSlice";
@@ -10,10 +10,41 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const errors = useSelector((state) => state.loggedUser.errors);
+
+  console.log(errors);
+
   const [loggedUser, setLoggedUser] = useState({
     username: "",
     password: "",
   });
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (!errors) {
+      setIsVisible(false);
+    }
+    setIsVisible(true);
+
+    const interval = setInterval(() => {
+      setIsVisible(false);
+    }, 3000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [setIsVisible, errors]);
+  function handleErrors() {
+    if (errors) {
+      return errors?.map((error, index) => (
+        <h3 className="login-error" key={index}>
+          {error}
+        </h3>
+      ));
+    } else {
+      return null;
+    }
+  }
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -54,6 +85,8 @@ function Login() {
             onChange={handleChange}
           />
         </div>
+
+        {isVisible ? handleErrors() : null}
 
         <button className="login-btn"> Login</button>
 

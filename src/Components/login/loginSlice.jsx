@@ -18,7 +18,7 @@ export const loginUser = (user, navigate) => {
       console.log(data);
       navigate("/mainpage");
     } else {
-      dispatch({ type: "user/error", payload: data.error });
+      dispatch({ type: "user/error", payload: data.errors });
     }
   };
 };
