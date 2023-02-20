@@ -1,29 +1,23 @@
-export const addUser = (user, alertSuccess) => {
+export const loginUser = (user) => {
   return async function (dispatch) {
     dispatch({ type: "user/loading" });
-    const response = await fetch("http://127.0.0.1:3000/users", {
+
+    const response = await fetch("/user/login", {
       method: "POST",
-      headers: { accept: "application/json" },
-      body: user,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "Application/json",
+      },
+      body: JSON.stringify(user),
     });
 
     const data = await response.json();
-
     if (response.ok) {
-      dispatch({ type: "user/signup", payload: data.user });
+      dispatch({ type: "user/login", payload: data.user });
       localStorage.setItem("user", data.jwt);
     } else {
-      dispatch({ type: "user/errors", payload: data.errors });
+      dispatch({ type: "user/error", payload: data.error });
     }
-  };
-};
-
-
-
-export const getUser = (token) => {
-  return async function (dispatch) {
-    dispatch({ type: "user/loading" });
-    const response = await fetch("");
   };
 };
 
@@ -32,28 +26,32 @@ const initialState = {
   status: "idle",
   errors: [],
 };
-export default function userReducer(state = initialState, action) {
+
+function loginReducer(state = initialState, action) {
   switch (action.type) {
-    case "user/loading":
+    case "loading/user":
       return {
         ...state,
-        errors: [],
         status: "loading",
       };
-    case "user/signup":
+
+    case "user/login":
       return {
         ...state,
         user: action.payload,
         status: "idle",
       };
 
-    case "user/errors":
+    case "user/error":
       return {
         ...state,
         errors: action.payload,
         status: "idle",
       };
+
     default:
       return state;
   }
 }
+
+export default loginReducer;
