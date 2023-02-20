@@ -11,6 +11,7 @@ function Login() {
   const navigate = useNavigate();
 
   const errors = useSelector((state) => state.loggedUser.errors);
+  const status = useSelector((state) => state.loggedUser.status);
 
   console.log(errors);
 
@@ -88,7 +89,9 @@ function Login() {
 
         {isVisible ? handleErrors() : null}
 
-        <button className="login-btn"> Login</button>
+        <button className="login-btn">
+          {status === "loading" ? "Logging..." : "Login"}
+        </button>
 
         <p className="signup-option">
           Don't Have an Account? <span id="sign-up">Sign Up</span>

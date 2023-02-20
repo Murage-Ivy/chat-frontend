@@ -1,6 +1,6 @@
 export const loginUser = (user, navigate) => {
   return async function (dispatch) {
-    dispatch({ type: "user/loading" });
+    dispatch({ type: "loading/user" });
 
     const response = await fetch("/user/login", {
       method: "POST",
