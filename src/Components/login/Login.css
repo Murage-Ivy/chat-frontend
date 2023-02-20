@@ -1,0 +1,92 @@
+.login-group {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.img-login {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px 0px 0px 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  padding: 20px;
+}
+.login-form {
+  flex: 1;
+  background-color: white;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  border-radius: 0px 16px 16px 0px;
+  padding: 20px;
+  position: relative;
+}
+
+.login-inputs > input {
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid gray;
+  padding: 8px 40px;
+  outline: none;
+}
+
+.login-btn {
+  padding: 6px 60px;
+  align-self: center;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+  transform: scale(1.05);
+}
+
+.login-inputs {
+  width: 100%;
+  position: relative;
+}
+
+.login-icon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: var(--secondary-color);
+}
+.img-login > img {
+  max-width: 500px;
+  margin: 0 auto;
+  display: block;
+}
+
+.signup-option {
+  align-self: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.welcome-message {
+  align-self: center;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+#sign-up {
+  cursor: pointer;
+  color: var(--secondary-color);
+}
