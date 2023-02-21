@@ -8,6 +8,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
+import MainPage from "../mainPage/MainPage";
 import "./SideBar.css";
 
 function SideBar({ children }) {
@@ -50,7 +51,7 @@ function SideBar({ children }) {
           <span>LOGOUT</span>
         </div>
       </div>
-      <main>{children}</main>
+      <MainPage children={children} />
     </div>
   );
 }

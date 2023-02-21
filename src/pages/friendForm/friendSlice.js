@@ -1,6 +1,8 @@
 export const addFriend = (friend, token) => {
   return async function (dispatch) {
-    dispatch({ type: "loading/friends" });
+    dispatch({
+      type: "loading/friends"
+    });
     const response = await fetch("friends", {
       method: "POST",
       headers: {
@@ -13,14 +15,44 @@ export const addFriend = (friend, token) => {
     const data = await response.json();
 
     if (response.ok) {
-      dispatch({ type: "add/Friend", payload: data });
+      dispatch({
+        type: "add/Friend",
+        payload: data
+      });
     } else {
-      dispatch({ type: "errors/friends", payload: data.errors });
+      dispatch({
+        type: "errors/friends",
+        payload: data.errors
+      });
     }
   };
 };
 
-export const getFriends = () => {};
+export const getFriends = (token) => {
+  return async function (dispatch) {
+    dispatch({
+      type: "loading/friends"
+    })
+    const response = await fetch('friends', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    const data = await response.json()
+
+    if (response.ok) {
+      dispatch({
+        type: 'get/friends'
+      })
+      console.log(data)
+    } else {
+      dispatch({
+        type: 'errors/friends'
+      })
+    }
+  }
+};
 
 export const removeFriend = () => {};
 
@@ -42,14 +74,14 @@ function friendsReducer(state = initialState, action) {
       return {
         ...state,
         friends: [...state.friends, action.payload],
-        status: "idle",
+          status: "idle",
       };
 
     case "get/Friends":
       return {
         ...state,
         friends: action.payload,
-        status: "idle",
+          status: "idle",
       };
 
     case "errors/friends":

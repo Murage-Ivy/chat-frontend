@@ -16,7 +16,7 @@ export const loginUser = (user, navigate) => {
       dispatch({ type: "user/login", payload: data.user });
       localStorage.setItem("user", data.jwt);
       console.log(data);
-      navigate("/mainpage");
+      navigate("/chat/dashboard");
     } else {
       dispatch({ type: "user/error", payload: data.errors });
     }
