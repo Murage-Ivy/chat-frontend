@@ -1,11 +1,18 @@
 .sidebar {
+  display: flex;
+  grid-template-columns: 30% 70%;
+}
+.top-section {
   background-color: var(--primary-color);
   color: var(--tertiary-color);
   padding: 15px;
   display: grid;
+  width: 200px;
+  border-right: 1px solid var(--tertiary-color);
   grid-template-rows: 1fr 1fr 1fr 1fr;
   align-items: start;
-  border-radius: 20px 0px 0px 20px;
+  /* border-radius: 20px 0px 0px 20px; */
+  min-height: 100vh;
 }
 .side-icon {
   size: 40px;
@@ -34,4 +41,10 @@
 a {
   color: var(--tertiary-color);
   text-decoration: none;
+}
+
+main {
+  height: 100vh;
+  margin: 0 auto;
+  width: 100%;
 }

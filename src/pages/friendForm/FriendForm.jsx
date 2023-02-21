@@ -15,7 +15,7 @@ function FriendForm() {
     const { value, name } = event.target;
     setFriend({ ...friend, [name]: value });
   }
-  
+
   function handleSubmit(event) {
     event.preventDefault();
     dispatch(addFriend(friend, localStorage.getItem("user")));
@@ -54,10 +54,7 @@ function FriendForm() {
 
           <button className="add-friend">Add Friend</button>
         </form>
-        <img
-          src="../assets/images/undraw_social_friends_re_7uaa.svg"
-          alt="friends"
-        />
+        <img src="../assets/images/OnlineReview-pana.svg" alt="friends" />
       </div>
     </>
   );

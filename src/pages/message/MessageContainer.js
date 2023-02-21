@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Card from "../card/Card";
-import SearchForm from "../searchForm/SearchForm";
+import SearchForm from "../pages/searchForm/SearchForm";
 import "./MessageContainer.css";
 
 function MessageContainer() {

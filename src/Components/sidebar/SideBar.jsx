@@ -10,35 +10,47 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./SideBar.css";
 
-function SideBar() {
+function SideBar({ children }) {
   return (
     <div className="sidebar">
-      <div className="item">
-        <FontAwesomeIcon icon={faPerson} className="side-icon" />
-        <span>Account</span>
-      </div>
-
-      <Link to="/friendform">
+      <div className="top-section">
         <div className="item">
-          <FontAwesomeIcon icon={faAdd} className="side-icon" id="add-friend" />
-          <span>Add Friend</span>
+          <FontAwesomeIcon icon={faPerson} className="side-icon" />
+          <span>Account</span>
         </div>
-      </Link>
 
-      <div className="item">
-        <FontAwesomeIcon icon={faContactBook} className="side-icon" />
-        <span>Contacts</span>
-      </div>
+        <Link to="/friendform">
+          <div className="item">
+            <FontAwesomeIcon
+              icon={faAdd}
+              className="side-icon"
+              id="add-friend"
+            />
+            <span>Add Friend</span>
+          </div>
+        </Link>
 
-      <div className="item">
-        <FontAwesomeIcon icon={faMessage} className="side-icon" />
-        <span>Chats</span>
-      </div>
+        <Link to="/contacts">
+          <div className="item">
+            <FontAwesomeIcon icon={faContactBook} className="side-icon" />
+            <span>Contacts</span>
+          </div>
+        </Link>
 
-      <div className="item">
-        <FontAwesomeIcon icon={faArrowRightFromBracket} className="side-icon" />
-        <span>LOGOUT</span>
+        <div className="item">
+          <FontAwesomeIcon icon={faMessage} className="side-icon" />
+          <span>Chats</span>
+        </div>
+
+        <div className="item">
+          <FontAwesomeIcon
+            icon={faArrowRightFromBracket}
+            className="side-icon"
+          />
+          <span>LOGOUT</span>
+        </div>
       </div>
+      <main>{children}</main>
     </div>
   );
 }
