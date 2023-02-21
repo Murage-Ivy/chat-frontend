@@ -94,7 +94,7 @@ function Login() {
         </button>
 
         <p className="signup-option">
-          Don't Have an Account?{" "}
+          Don't Have an Account?
           <Link to="/signup">
             <span id="sign-up">Sign Up</span>
           </Link>
