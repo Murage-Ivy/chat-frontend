@@ -55,7 +55,26 @@ export const getFriends = (token) => {
   }
 };
 
-export const removeFriend = () => {};
+
+
+export const removeFriend = (friendId, token) => {
+  return async function (dispatch) {
+    const response = await fetch(`/friends/${friendId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+
+    })
+    if (response.ok) {
+      dispatch({
+        type: 'remove/Friend',
+        payload: friendId
+      })
+    }
+
+  }
+};
 
 const initialState = {
   friends: [],
@@ -84,6 +103,13 @@ function friendsReducer(state = initialState, action) {
         friends: action.payload,
           status: "idle",
       };
+
+    case "remove/Friend":
+      return {
+        ...state,
+        friends: state.friends.filter((friend) => friend.id !== action.payload),
+      };
+
 
     case "errors/friends":
       return {
