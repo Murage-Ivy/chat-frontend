@@ -1,4 +1,4 @@
-export const loginUser = (user, navigate) => {
+export const loginUser = (user, navigate, setVisible) => {
   return async function (dispatch) {
     dispatch({ type: "loading/user" });
 
@@ -17,6 +17,7 @@ export const loginUser = (user, navigate) => {
       localStorage.setItem("user", data.jwt);
       console.log(data);
       navigate("/chat/dashboard");
+      setVisible(true);
     } else {
       dispatch({ type: "user/error", payload: data.errors });
     }

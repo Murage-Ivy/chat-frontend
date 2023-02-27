@@ -6,9 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { loginUser } from "./loginSlice";
 
-function Login() {
+function Login({ setVisible }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
 
   const errors = useSelector((state) => state.loggedUser.errors);
   const status = useSelector((state) => state.loggedUser.status);
@@ -54,7 +55,7 @@ function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(loginUser(loggedUser, navigate));
+    dispatch(loginUser(loggedUser, navigate, setVisible));
   }
   return (
     <div className="login-group">

@@ -43,12 +43,13 @@ export const getFriends = (token) => {
 
     if (response.ok) {
       dispatch({
-        type: 'get/friends'
+        type: 'get/Friends',
+        payload: data
       })
-      console.log(data)
     } else {
       dispatch({
-        type: 'errors/friends'
+        type: 'errors/friends',
+        payload: data.errors
       })
     }
   }
