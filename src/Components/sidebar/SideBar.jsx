@@ -38,10 +38,13 @@ function SideBar({ children }) {
           </div>
         </Link>
 
-        <div className="item">
-          <FontAwesomeIcon icon={faMessage} className="side-icon" />
-          <span>Chats</span>
-        </div>
+        <Link to="/chats">
+          <div className="item">
+            <FontAwesomeIcon icon={faMessage} className="side-icon" />
+            <span>Chats</span>
+          </div>
+        </Link>
+
 
         <div className="item">
           <FontAwesomeIcon
