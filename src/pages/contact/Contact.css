@@ -58,4 +58,18 @@
   font-weight: 700;
 }
 
+.contact-search {
+  width: 80%;
+  padding: 10px 40px;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  font-size: 13px;
+  font-weight: 400;
+  outline: none;
+  margin: 20px 0;
+  display: block;
+  margin: 0 auto;
+
+}
+
 

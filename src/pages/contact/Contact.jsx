@@ -1,5 +1,5 @@
 import { faMessage, faUser } from "@fortawesome/free-regular-svg-icons";
-import { faPerson, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,9 +31,11 @@ function Contact() {
     <div className="contact-list">
       <h1 className="contact-list-header">Contacts</h1>
       <div className="search">
-        <input type="text" placeholder="Search" />
+        <input type="text" placeholder="Search" className="contact-search" />
       </div>
+      {status === "loading" ? <h2>Loading...</h2> : null}
       <ul>
+
         {contactList}
       </ul>
     </div>
