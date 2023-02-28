@@ -18,21 +18,27 @@ const MessageProvider = ({ children }) => {
         })
         const data = await response.json()
         if (response.ok) {
-            console.log(data)
             const newContacts = ([...contacts, data])
             const uniqueContacts = [...new Set(newContacts)]
             console.log(uniqueContacts)
-            setContacts(uniqueContacts)
+            setContacts(prevState => prevState = uniqueContacts)
         } else {
             console.log("Error")
         }
     }
 
-    console.log(contacts.filter(contact => contact.id ))
+  
 
     const messageFriend = (friendId) => {
-        navigate("/chats")
-        getFriend(friendId)
+        const value = contacts.includes(contact => contact.id === friendId)
+        console.log(value)
+        if (!value) {
+            getFriend(friendId)
+            navigate("/chats")
+        }
+
+
+
     }
 
     const value = {

@@ -1,4 +1,7 @@
 .chats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  border: 1px solid red;
+  height: 100vh;
 }
