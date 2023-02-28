@@ -1,9 +1,11 @@
 .message-container {
-  border-right: 1px solid red;
+  border-right: 1px solid #e5e5e5;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
+  height: 100vh;
+
 }
 .top-header {
   height: 100px;

@@ -1,14 +1,18 @@
 import { faMessage, faUser } from "@fortawesome/free-regular-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { getFriends, removeFriend } from "../friendForm/friendSlice";
+import { messageContext } from "../message/MessageContext";
 import "./Contact.css";
 
 function Contact() {
+  const { messageFriend } = useContext(messageContext)
   const token = localStorage.getItem("user")
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const contacts = useSelector((state) => state.friends.friends);
   const status = useSelector((state) => state.friends.status);
   const errors = useSelector((state) => state.friends.errors);
@@ -22,12 +26,14 @@ function Contact() {
     dispatch(removeFriend(friendId, token))
   }
 
+
+
   const contactList = contacts?.map((contact) => (
     <li key={contact.id}>
       <FontAwesomeIcon icon={faUser} className="user-icon" />
       <div >{contact.name}</div>
       <div >{contact.email}</div>
-      <FontAwesomeIcon icon={faMessage} className="message-icon" />
+      <FontAwesomeIcon icon={faMessage} className="message-icon" onClick={() => messageFriend(contact.id)} />
       <FontAwesomeIcon icon={faTrash} className="message-icon" onClick={() => onRemoveFriend(contact.id)} />
     </li>
 
