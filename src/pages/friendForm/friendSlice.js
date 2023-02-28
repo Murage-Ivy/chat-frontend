@@ -56,6 +56,11 @@ export const getFriends = (token) => {
 };
 
 
+export const getFriend = (friendId, token) => {
+  
+}
+
+
 
 export const removeFriend = (friendId, token) => {
   return async function (dispatch) {
@@ -103,6 +108,7 @@ function friendsReducer(state = initialState, action) {
         friends: action.payload,
           status: "idle",
       };
+
 
     case "remove/Friend":
       return {
