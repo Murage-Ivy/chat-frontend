@@ -1,12 +1,19 @@
 import React from 'react'
 import './MessageForm.css'
 
-function MessageForm() {
+function MessageForm({ handleSubmit, handleChange, message }) {
+
+
     return (
-        <div className='message-form'>
-            <input type="text" placeholder='type a message...'  className='input-message'/>
+        <form className='message-form' onSubmit={handleSubmit}>
+            <input type="text"
+                placeholder='type a message...'
+                className='input-message'
+                onChange={handleChange}
+                value={message.message}
+                name="message" />
             <input type="submit" value="Send" className='message-btn' />
-        </div>
+        </form>
     )
 }
 
